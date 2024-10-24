@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+
+  <body>
+    <main class="grid-admin">
+      <div class="content-admin">
+        <%- include('components/menuAdmin') %>
+
+        <div class="admin-profile">
+          <%- include('components/headerAdmin') %>
+        </div>
+        <div class="content-display">
+          <div class="content-msg">
+            <%if (msgSuccess) { %>
+            <div class="msgSuccess">
+              <%= msgSuccess %> <a href="/dashboard">X</a>
+            </div>
+            <% } %>
+          </div>
+          <h1>dashboard</h1>
+          <div>
+            <P
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum vel
+              eaque voluptatem voluptatibus iure consequuntur, non corporis
+              consequatur, dolor temporibus veritatis nihil porro natus
+              praesentium impedit. Ea, saepe? Nesciunt, sint. Lorem ipsum dolor
+              sit, amet consectetur adipisicing elit. Id a laboriosam adipisci,
+              maxime at praesentium corporis iusto et ea quod totam eum tempore
+              aliquid vitae nulla, amet quo minima pariatur. Lorem ipsum, dolor
+              sit amet consectetur adipisicing elit. Molestiae at quasi quidem
+              fugiat error deleniti id? Quam temporibus tempora nostrum at
+              voluptas dolorum reiciendis, suscipit ut, explicabo ratione
+              architecto omnis?</P
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('components/script') %>
+  </body>
+</html>

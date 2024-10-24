@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <div class="img-logo">
+      <picture>
+        <img src="/img/calmcoree.png" alt="" />
+      </picture>
+    </div>
+    <nav class="main-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <% if (!locals.session.logged) { %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Cadastro</a></li>
+          <% } else { %>
+
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/logout">Sair</a></li>
+            <% } %>
+      </ul>
+
+    </nav>
+    <div class="search">
+      <form>
+        <input type="search" name="pesquisa" placeholder="Pesquisar" />
+        <button><i class="bx bx-search"></i></button>
+      </form>
+    </div>
+  </div>
+</header>
