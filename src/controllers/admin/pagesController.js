@@ -2,7 +2,7 @@ const PagesModel = require("..//../models/pagesModel");
 const PositionModel = require("..//../models/positionModel");
 
 module.exports = class PagesController {
-  static async getPages(Req, res) {
+  static async getPages(req, res) {
     const adminUser = req.session.adminUser;
     const result = await PagesModel.selectJoinPagesPosition();
 

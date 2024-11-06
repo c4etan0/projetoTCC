@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('components/head') %>
+    <body>
+        <main>
+            <div class="content-admin">
+                <%- include('components/menuAdmin') %>
+                <div class="admin-profile">
+                    <%- include('components/headerAdmin') %>
+            </div>
+            <div class="content-display">
+                <h1>Pages</h1>
+                <div class="content-msg">
+                    <% if(msgSucess) { %>
+                    <%= msgSucess %> <a href=" /pages/createPages">X</a>
+                </div>
+            </div>
+            <% } %> <% if(msgError) { %>
+                <div class="msgError">
+                    <%= msgError %> <a href="/pages/createPages">X</a>
+                </div>
+            <% } %>
+            </div>
+            <div class="create-pages">
+                <form action="/pages/createPages" method="post">
+                    <div class="form-group">
+                        <div class="btns-controls-page">
+                            <a href="/pages">Cancelar</a>
+                            <button>Salvar</button>
+                        </div>
+                        <div class="page_title" id="page_title">
+                            <input
+                            type="text"
+                            name="page_title"
+                            placeholder="titulo da pagina"
+                            />
+                        </div>
+                        <div class="page_position" id="page_position">
+                            <label for="select_position">Selecione uma posiçao</label>
+                            <select name="page_position_id" id="select_position">
+                                <option value="" disabled selected>
+                                    Seleione uma posiçao
+                                </option>
+                                <% getPosition.forEach(position => { %>
+                                <option value="<% position.position_id %>">
+                                    <%= position.position_name %>
+                                </option>
+                                <%  })  %>
+                            </select>
+                            <a href="#"><i class="bx bx-plus-medical"></i>Add posiçao</a>
+                        </div>
+                        <div class="page_status" id="page_status">
+                            <label for="select_status">Selecione o status</label>
+                            <select name="page_status" id="page_status">
+                                <option value="Rascunho">Rascunho</option>
+                                <option value="Publicado">Publicado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container-galeria">
+                        <h3>Galeria</h3>
+                        <di class="all_images">
+                            <% images.forEach(image => {
+                                <div
+                                class="content_image"
+                                data_id=""
+                            }) %>
+                        </di>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
