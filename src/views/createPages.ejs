@@ -63,9 +63,34 @@
                             <% images.forEach(image => {
                                 <div
                                 class="content_image"
-                                data_id=""
+                                data_id="<%= image.user_image_id %>"
+                                id="content_image"
+                            >
+                            <div class="show_img">
+                                <img
+                                src="<%= image.user_image_image_name %>" 
+                                id="image_name"
+                                alt=""
+                                />
+                                </div>
+                                <div class="img_name" id="img_name">
+                                    <%= image.user_image_name %>
+                                    </div>
+                            </div>
                             }) %>
-                        </di>
+                        </div>
+                    </div>
+                    <textarea 
+                    name="page-content"
+                    id="my-expressjs-tinymce-app"
+                    ></textarea>
+                </form>
+            </div>
+            <div class="modal-add-position hide-modal" id="modal-add-position">
+                <form action="/position/page" method="post">
+                    <div class="content-add-position">
+                        <h2>cadastre uma opçao</h2>
+                        <div class="cancelar=x"
                     </div>
                 </form>
             </div>

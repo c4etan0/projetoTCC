@@ -6,3 +6,5 @@ git push  (quando acabar o codigo)
 
 (antes de digitar o codigo em casa e na escola)
 git pull
+
+blackbox ai
