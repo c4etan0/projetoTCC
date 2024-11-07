@@ -2,7 +2,7 @@ git add .
 
 git commit -m 'dentro das aspas vai a mensagem'
 
-git push  
+git push  (quando acabar o codigo)
 
-executar o codigo abaixo antes de digitar o codigo em casa e na escola
+(antes de digitar o codigo em casa e na escola)
 git pull
