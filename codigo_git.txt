@@ -8,3 +8,4 @@ git push  (quando acabar o codigo)
 git pull
 
 blackbox ai
+
