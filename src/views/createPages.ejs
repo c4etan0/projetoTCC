@@ -90,10 +90,26 @@
                 <form action="/position/page" method="post">
                     <div class="content-add-position">
                         <h2>cadastre uma opçao</h2>
-                        <div class="cancelar=x"
+                        <div class="cancelar=x" id="cancelar=x">
+                            <a href="#"> <i class="bx-x-square"></i></a>
+                        </div>
+                        <div class="input-position-name">
+                            <input 
+                            type="text"
+                            name="position_name"
+                            id="position_name"
+                            placeholder="nome da posição"
+                            />
+                        </div>
+                        <div class="btn-position">
+                            <button>cadastrar posição</button>
+                        </div>
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
         </main>
+        <%- include('components/script') %> 
     </body>
 </html>

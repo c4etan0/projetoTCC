@@ -1,11 +1,8 @@
-git add . 
+git add .
 
-git commit -m 'dentro das aspas vai a mensagem'
+git commit -m 'dentro das aspas vai a mensagem'  
 
-git push  (quando acabar o codigo)
+git push    (quando terminar o codigo)  
 
-(antes de digitar o codigo em casa e na escola)
-git pull
 
-blackbox ai
-
+git pull    (antes de digitar o codigo)
