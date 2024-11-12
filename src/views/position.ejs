@@ -63,12 +63,51 @@
                                 <i class="bx bxs-edit"></i>
                                 Editar
                             </a>
-                                </div>
-                                <div class="col">
-                                    <a
-                                    class="delete"
-                                    onclick="openModalDeletePosition(`<%= position.position_id %>´
-                                    )"
+                        </div>
+                        <div class="col">
+                          <a
+                            class="delete"
+                            onclick="openModalDeletePosition(`<%= position.position_id %>`, `<%= position.position_name %>`)"
+                            id="delete"
+                            data-id="<%= position.position_id %>"
+                            href="#"
+                          >
+                            <i class="bx bxs-trash"></i>
+                            Deletar
+                          </a>
+                        </div>
+                      </div>
+                      <% }) %>
+                    </div>
+                    <div class="modal hide-modal" id="modal">
+                      <form action="" method="post">
+                        <div class="content-delete" id="content-delete">
+                          <p>Você está prestes a deletar a posição</p>
+                          <h3></h3>
+                          <p>
+                            Se você realmente quer deletar clique em Deletar, se não,
+                            clique em Cancelar
+                          </p>
+                          <div class="btns_delete">
+                            <button class="btn_cancel" id="cancelar" type="reset">
+                              Cancelar
+                            </button>
+                            <button class="btn_delete">
+                              <i class="bx bxs-trash"></i>
+                              Deletar
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+          <%- include('components/script') %>
+        </body>
+      </html>
                                 </div>
                             </div>
                         </div>

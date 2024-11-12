@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <%- include('components/head') %>
-
   <body>
     <main>
-      <h1>admin</h1>
       <div class="form_admin"></div>
       <form action="/admin" method="post" class="form">
+        <h1>admin</h1>
         <div class="form-group">
           <div class="input">
-            <input type="text" name="admin_email" class="admin-email" id="admin-email" />
-            <label for="admin-email">
+            <input 
+            type="text" 
+            name="admin_email" 
+            class="admin-email" 
+            id="admin-email"
+            placeholder="" 
+            />
+            <label 
+            for="admin-email">
               Admin Login </label>
           </div>
           <div class="input">
-            <input type="password" name="admin_password" class="admin-password" id="admin-password" />
+            <input type="password"
+             name="admin_password" 
+             class="admin-password" 
+             id="admin-password" 
+             placeholder=""
+             />
             <label for="admin-password">
               Admin Password</label>
           </div>

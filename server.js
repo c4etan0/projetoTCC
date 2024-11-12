@@ -13,6 +13,7 @@ const logoutAdminRoute = require("./src/routes/logoutAdminRoute");
 const logoutRoute = require("./src/routes/logoutRoutes");
 const profileRoute = require("./src/routes/profileRoute");
 const pagesRoute = require("./src/routes/pageRoutes");
+const uploadAdminRoute = require("./src/routes/uploadAdminRoute");
 
 const app = express();
 const port = process.env.PORTSERVER || 3000;
@@ -53,6 +54,7 @@ app.use("/logoutAdmin", logoutAdminRoute);
 app.use("/logout", logoutRoute);
 app.use("/profile", profileRoute);
 app.use("/pages", pagesRoute);
+app.use("/upload", uploadAdminRoute);
 
 app.listen(port, async () => {
   const [result] = await database.query("SELECT 1");

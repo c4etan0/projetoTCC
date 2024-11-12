@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <main>
+      <div class="content-admin">
+        <%- include('components/menuAdmin') %>
+        <div class="admin-profile">
+          <%- include('components/headerAdmin') %>
+        </div>
+        <div class="content-display">
+          <h1>Upload de Imagens</h1>
+          <div class="content-msg">
+            <% if(msgSuccess) { %>
+            <div class="msgSuccess">
+              <%= msgSuccess %> <a href="/upload">X</a>
+            </div>
+            <% } %> <% if(msgError) { %>
+            <div class="msgError"><%= msgError %> <a href="/upload">X</a></div>
+            <% } %>
+          </div>
+          <div class="content-form-upload">
+            <form action="/upload" enctype="multipart/form-data" method="post">
+              <div class="input-upload">
+                <label for="user-upload">Clique para Escolher uma imagem</label>
+                <input
+                  type="file"
+                  name="user_upload"
+                  class="user-upload"
+                  id="user-upload"
+                  accept="image/*"
+                />
+              </div>
+              <div class="content-btn" id="btn-cad">
+                <button>Upload</button>
+                <!-- <input type="submit" value="Upload" /> -->
+              </div>
+            </form>
+          </div>
+          <div class="show-images">
+            <div class="group-images">
+              <% results.forEach(e => { %>
+              <div class="image">
+                <img src="<%= e.user_image_name %>" alt="" />
+              </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('components/script') %>
+  </body>
+</html>
