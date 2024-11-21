@@ -5,9 +5,7 @@
     <main>
       <div class="content-admin">
         <%- include('components/menuAdmin') %>
-        <div class="admin-profile">
-          <%- include('components/headerAdmin') %>
-        </div>
+        <div class="admin-profile"></div>
         <div class="content-display">
           <h1>Pages</h1>
           <div class="content-msg">
@@ -52,7 +50,6 @@
                       </a>
                     </div>
                     <div class="col">
-                      <!-- <a href="/pages/deletePage/<%= //e.page_id %>">Delete</a> -->
                       <a
                         class="delete"
                         onclick="openDeleteModal(`<%= page.page_id %>`, `<%= page.page_title %>`)"
@@ -70,6 +67,7 @@
                 <div class="modal hide-modal" id="modal">
                   <form action="" method="post">
                     <div class="content-delete" id="content-delete">
+                      <p>Você está prestes a deletar a pagina</p>
                       <h3></h3>
                       <h4>
                         Se você realmente quer deletar clique em Deletar se não

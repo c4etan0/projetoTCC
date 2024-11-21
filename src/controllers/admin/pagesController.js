@@ -1,5 +1,6 @@
-const PagesModel = require("..//../models/pagesModel");
-const PositionModel = require("..//../models/positionModel");
+const PagesModel = require("../../models/pagesModel");
+const PositionModel = require("../../models/positionModel");
+const UploadImagesModel = require("../../models/uploadImagesModel");
 
 module.exports = class PagesController {
   static async getPages(req, res) {
@@ -9,7 +10,7 @@ module.exports = class PagesController {
     return res.render("pages", {
       adminUser,
       pages: result,
-      msgSucess: req.query.msgSucess,
+      msgSuccess: req.query.msgSuccess,
       msgError: req.query.msgError,
     });
   }
@@ -17,18 +18,26 @@ module.exports = class PagesController {
   static async getCreatePages(req, res) {
     const adminUser = req.session.adminUser;
     const getPosition = await PositionModel.selectAllPosition();
+    const getImages = await UploadImagesModel.selectAllImages();
 
     return res.render("createPages", {
       adminUser,
       getPosition,
-      msgSucess: req.query.msgSucess,
+      msgSuccess: req.query.msgSuccess,
       msgError: req.query.msgError,
+      images: getImages,
     });
   }
 
   static async postCreatePages(req, res) {
     const { page_title, page_position_id, page_status, page_content } =
       req.body;
+
+    if (!page_title || !page_position_id || !page_status || !page_content) {
+      return res.redirect(
+        "/pages/createPages?msgError=Você precisa preencher todos os campos para cadastrar uma página!"
+      );
+    }
 
     const statusBoolean = page_status === "Publicado" ? 1 : 0;
     const position_position_id = Number(page_position_id);
@@ -39,13 +48,12 @@ module.exports = class PagesController {
       page_content,
       position_position_id,
     };
-    //console.log(page);
 
     const result = await PagesModel.insertPages(page);
     console.log(result);
 
     return res.redirect(
-      "/pages/createPages?msgSucess=Pagina criada com sucesso!"
+      "/pages/createPages?msgSuccess=Pagina criada com sucesso!"
     );
   }
 
@@ -53,16 +61,17 @@ module.exports = class PagesController {
     const adminUser = req.session.adminUser;
     const getParams = req.params.id;
 
-    const resultPoisition = await PositionModel.selectAllPoisition();
-    const result = await PagesModel.selectJoinPagePoisitionById(getParams);
-    // console.log(resultJoin);
+    const resultPosition = await PositionModel.selectAllPosition();
+    const result = await PagesModel.selectJoinPagesPositionById(getParams);
+    const getImages = await UploadImagesModel.selectAllImages();
 
     return res.render("editPage", {
       adminUser,
-      msgSucess: req.query.msgSucess,
+      msgSuccess: req.query.msgSuccess,
       msgError: req.query.msgError,
       page: result,
-      positions: resultPoisition,
+      positions: resultPosition,
+      images: getImages,
     });
   }
 
@@ -71,10 +80,10 @@ module.exports = class PagesController {
       req.body;
     const getParams = req.params.id;
 
-    const statusBoolen = page_status === "Publicado" ? 1 : 0;
+    const statusBoolean = page_status === "Publicado" ? 1 : 0;
     const position_position_id = Number(page_position_id);
 
-    const getDateUpdate = {
+    const getDataUpdate = {
       page_title,
       page_status: statusBoolean,
       page_content,
@@ -83,17 +92,14 @@ module.exports = class PagesController {
 
     const result = await PagesModel.updatePage(getParams, getDataUpdate);
 
-    console.log(result);
-
-    return res.redirect("/pages?msgSucess=Atualizada com sucesso!");
+    return res.redirect("/pages?msgSuccess=Atualizado com sucesso!");
   }
 
   static async deletePage(req, res) {
     const getId = req.params.id;
 
     const result = await PagesModel.deletePage(getId);
-    console.log(result);
 
-    return res.redirect("/pages");
+    return res.redirect("/pages?msgSuccess=Pagina deletada com sucesso!");
   }
 };

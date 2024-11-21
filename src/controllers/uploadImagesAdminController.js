@@ -16,8 +16,6 @@ module.exports = class UploadImagesAdminController {
   }
 
   static async postUploadAdminImages(req, res) {
-    const user_image_date = new Date().toJSON().slice(0, 19).replace("T", " ");
-
     if (!req.file) {
       return res.redirect(
         "/upload?msgError=Opa você precisa selecionar uma imagem para realizar o Upload!&error=false"
@@ -25,11 +23,8 @@ module.exports = class UploadImagesAdminController {
     }
 
     const user_image_name = `/${req.file.filename}`;
-    const imgData = {
-      user_image_name,
-    };
 
-    const results = await UploadImagesModel.postImages(imgData);
+    const results = await UploadImagesModel.postImages(user_image_name);
 
     if (!results) {
       return res.redirect(

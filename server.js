@@ -14,6 +14,7 @@ const logoutRoute = require("./src/routes/logoutRoutes");
 const profileRoute = require("./src/routes/profileRoute");
 const pagesRoute = require("./src/routes/pageRoutes");
 const uploadAdminRoute = require("./src/routes/uploadAdminRoute");
+const positionRoute = require("./src/routes/positionRoute");
 
 const app = express();
 const port = process.env.PORTSERVER || 3000;
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "./public")));
+app.use(express.static(path.join(__dirname, "./public/uploads")));
 
 app.use(cookieParser());
 app.use(
@@ -45,6 +47,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(
+  "/tinymce",
+  express.static(path.join(__dirname, "node_modules", "tinymce"))
+);
+
 app.use("/", route);
 app.use("/admin", adminRoute);
 app.use("/dashboard", dashboardRoute);
@@ -54,6 +61,7 @@ app.use("/logoutAdmin", logoutAdminRoute);
 app.use("/logout", logoutRoute);
 app.use("/profile", profileRoute);
 app.use("/pages", pagesRoute);
+app.use("/position", positionRoute);
 app.use("/upload", uploadAdminRoute);
 
 app.listen(port, async () => {
