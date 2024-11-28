@@ -5,9 +5,107 @@
     <body>
         <%- include('components/header') %>
             <main>
-                <h1>profile</h1>
-            </main>
-            <%- include('components/footer') %>
-    </body>
+                <div class="container_profile">
+                    <div class="content_profile">
+                        <h1>Meu perfil</h1>
+                        <div class="content_msg grid_area">
+                            <% if (msgSuccess) { %>
+                                <div class="msgSuccess">
+                                    <%= msgSuccess %> <a href="/profile">X</a>
+                                 </div>
+                            <% } %> <% if (msgError) { %>
+                                <div class="msgError"><%= msgError %> <a href="/profile">X</a></div>
+                                <% } %>
+                        </div>
+                        <header class="menu_profile">
+                            <nav>
+                                <ul>
+                                    <li><a href="/profile">Meu perfil</a></li>
+                                    <li><a href="/profile/listPosts">Posts</a></li>
+                                    <li><a href="/profile/createPost">Criar post</a></li>
+                                </ul>
+                            </nav>
+                        </header>
+                        <div class="show_content">
+                            <h2>Meus dados</h2>
+                            <form 
+                            action="/profile/<%= user.user_id %>"
+                            method="post"
+                            enctype="multipart/form-data">
+                            <div class="table">
+                                <div class="column">
+                                    <div class="img_profile">
+                                        <label for="input_profile">
+                                            <% if (user.user_img_profile !== null)  { %>
+                                                <img
+                                                src="<%= user.user_img_profile %>"
+                                                alt=""
+                                                id="profile" />
+                                                <% } else { %>
+                                                    <img
+                                                    src="/img/add.user.png"
+                                                    alt=""
+                                                    id="profile" />
+                                                    <% } %>
+                                                    <div class="change_img" id="change_img">
+                                                        <span><i class="bx bxs-user-plus"></i></span>
+                                                    </div>
+                                             </label>
+                                         </div>
+                                         <input
+                                         type="file"
+                                         name="user_img_profile"
+                                         class="input_profile"
+                                         id="input_profile"
+                                         accept="image/*"
+                                         disabled
+                                         value="/img/add-user.png" />
+                                </div>
+                                <div class="column">
+                                    <div class="dados_profile">
+                                        <% if (user) { %>
+                                            <div class="titulos">
+                                                <div>Nome:</div>
+                                                <div>
+                                                    <input
+                                                    type="text"
+                                                    disabled
+                                                    name="user_name"
+                                                    value="<%= user.user_name %>"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="dados">
+                                                <div>Email:</div>
 
+                                                <div>
+                                                    <input
+                                                    type="text"
+                                                    disabled
+                                                    name="user_email"
+                                                    value="<%= user.user_email %>"/>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                            <div class="btns_profile" id="btns_profile">
+                                                <!-- <div></div> -->
+                                                 <div>
+                                                    <a class="edit"
+                                                    id="edit"
+                                                    href="#">Editar perfil</a>
+                                                    <a class="cancel" 
+                                                    id="cancel" 
+                                                    href="#">Cancelar Edição</a>
+                                                 </div>
+                                                 <div><button>Atualizar Perfil</button></div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </main>
+                <%- include('components/footer') %>
+    </body>
 </html>
