@@ -578,9 +578,7 @@ img{
     background: var(--cor-verde);
 }
 
-/*****************************************************
-  estilo do formulario de upload das imagens uploaded
-*******************************************************/
+
 
 .group-images {
     display: grid;
@@ -646,9 +644,7 @@ img{
     background: var(--cor-verde-light);
   }
   
-  /*************************************
-  Estilo da modal delete page e position
-***************************************/
+ 
 .content-delete h3 {
     font-size: 1.8rem;
   }
@@ -689,9 +685,7 @@ img{
     background: var(--cor-vermelho);
   }
 
-  /*************************************
-  Estilo da galeria de imagens
-***************************************/
+ 
 .container-galeria h3 {
     font-size: 1.5rem;
     color: var(--cor-branco);
@@ -736,9 +730,7 @@ img{
     background: var(--cor-verde);
   }
   
-  /*************************************
-    Estilo do login admin
-  ***************************************/
+
   
   .form-admin {
     display: flex;
@@ -811,3 +803,305 @@ img{
     background: var(--cor-verde);
     color: var(--cor-branco);
   }
+
+  
+
+.content_profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "title title"
+    "msg msg"
+    "menu content";
+}
+
+.grid_area {
+  grid-area: msg;
+}
+
+.content_profile h1 {
+  grid-area: title;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.content_profile header {
+  grid-area: menu;
+  padding: 0 2rem;
+}
+
+.content_profile .show_content {
+  grid-area: content;
+}
+
+.show_content .table {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 90%;
+  gap: 2rem;
+}
+
+.img_profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid;
+  overflow: hidden;
+  position: relative;
+}
+
+.img_profile img {
+  position: absolute;
+}
+
+.column .input_profile {
+  display: none;
+}
+
+.img_profile .change_img {
+  position: absolute;
+  background: var(--cor-preto-a);
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  display: none;
+  cursor: pointer;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.img_profile .change_img span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--cor-branco);
+  transition: color 300ms ease-in-out;
+}
+
+.img_profile .change_img:hover span {
+  color: var(--cor-azul-claro);
+}
+
+.column .dados_profile {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  border: 5px solid var(--cor-azul);
+  padding: 1rem;
+}
+
+.column .dados_profile .dados,
+.column .dados_profile .titulos {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--cor-azul);
+  padding: 0.5rem 0;
+}
+
+.column .dados_profile .titulos div:first-child,
+.column .dados_profile .dados div:first-child {
+  padding-right: 0.5rem;
+  text-align: right;
+}
+
+.column .dados_profile .titulos div input,
+.column .dados_profile .dados div input {
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  color: var(--cor-preto);
+  outline: none;
+  padding: 0.3rem 1rem;
+  width: 100%;
+}
+
+.enable_input {
+  background: var(--cor-azul-claro) !important;
+}
+
+.btns_profile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.btns_profile a {
+  font-size: 1.1rem;
+  color: var(--cor-preto);
+  transition: background 300ms ease-in-out, color 300ms ease-in-out;
+  display: flex;
+  padding: 0.5rem 2rem;
+}
+
+.btns_profile a.edit {
+  background: var(--cor-azul-claro);
+  border-radius: 0.3rem;
+}
+
+.btns_profile a.edit:hover {
+  background: var(--cor-azul);
+  color: var(--cor-cinza-claro);
+}
+
+.btns_profile a.cancel {
+  background: var(--cor-vermelho-light);
+  border-radius: 0.3rem;
+}
+
+.btns_profile a.cancel:hover {
+  background: var(--cor-vermelho);
+}
+
+.enabled {
+  cursor: pointer;
+  background: var(--cor-verde-light);
+  transition: background 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.enabled:hover {
+  background: var(--cor-verde);
+}
+
+.btns_profile div {
+  display: flex;
+  padding: 0.5rem 0 0 0;
+}
+
+.btns_profile div:first-child {
+  justify-content: end;
+}
+
+.btns_profile button {
+  border: none;
+  font-size: 1.1rem;
+  padding: 0.2rem 1rem;
+  border-radius: 0.3rem;
+}
+
+.create_post {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  width: 70%;
+}
+
+.create_post .dados,
+.create_post .btns_post,
+.create_post .titulos {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  font-size: 1.3rem;
+}
+
+.create_post .titulos {
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.create_post .dados div:first-child,
+.create_post .titulos div:first-child {
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.create_post .titulos div input,
+.create_post .dados div textarea {
+  width: 100%;
+  border: 2px solid var(--cor-azul-light);
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+.create_post .dados div textarea {
+  height: 12rem;
+  resize: none;
+}
+
+.create_post .btns_post div {
+  display: flex;
+  justify-content: end;
+}
+
+.create_post .btns_post div button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.3rem;
+  background: var(--cor-azul-claro);
+  transition: background 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.create_post .btns_post div button:hover {
+  background: var(--cor-azul);
+  color: var(--cor-branco);
+}
+
+
+.list_posts {
+  width: 90%;
+  font-size: 1.2rem;
+}
+
+.list_posts .table .row_post {
+  border: 5px solid var(--cor-azul);
+  padding: 1rem;
+}
+
+.list_posts .table .row_post .column .list {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.list_posts .table .row_post .column .list,
+.list_posts .table .row_post .column .header_post {
+  display: grid;
+  grid-template-columns: 70% 15% 15%;
+}
+
+.list_posts .table .row_post .column {
+  padding: 0 0 1rem 0;
+}
+
+.list_posts .table .row_post .column .header_post {
+  border-bottom: 3px solid var(--cor-azul);
+}
+
+.list_posts .table .row_post .column .list:nth-child(odd) {
+  background: var(--cor-azul-claro);
+}
+
+
+.show_all_posts .list_posts {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.show_post {
+  padding: 2rem 0;
+}
+
+.show_post .user_post {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  position: relative;
+}
+
+.show_post .user_post .user_img {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.show_post .user_post .user_img img {
+  position: absolute;
+}
+

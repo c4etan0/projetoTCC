@@ -1,83 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<%- include('components/head') %>
+  <%- include('components/head') %>
 
-    <body>
-        <%- include('components/header') %>
-            <main>
-                <div class="container_profile">
-                    <div class="content_profile">
-                        <h1>Meu perfil</h1>
-                        <div class="content_msg grid_area">
-                            <% if (msgSuccess) { %>
-                                <div class="msgSuccess">
-                                    <%= msgSuccess %> <a href="/profile">X</a>
-                                 </div>
-                            <% } %> <% if (msgError) { %>
-                                <div class="msgError"><%= msgError %> <a href="/profile">X</a></div>
-                                <% } %>
-                        </div>
-                        <header class="menu_profile">
-                            <nav>
-                                <ul>
-                                    <li><a href="/profile">Meu perfil</a></li>
-                                    <li><a href="/profile/listPosts">Posts</a></li>
-                                    <li><a href="/profile/createPost">Criar post</a></li>
-                                </ul>
-                            </nav>
-                        </header>
-                       <div class="list_posts">
-                        <h2>Criar Post</h2>
-                        <div class="table">
-                            <div class="row_post">
-                                <div class="column">
-                                    <div class="header_post">
-                                        <div>Titulo</div>
-                                        <div>Editar</div>
-                                        <div>Deletar</div>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <% posts.forEach(post => { %>
-                                    <div> class="list"
-                                        <div><%= post.post_title %></div>
-                                    </div>
-                                     <a href="/profile/editPost/<%= post.post_id %>">Editar</a>
-                                     </div>
-                                     <div>
-                                        <a
-                                          href="#"
-                                          onclick="openDeleteModal(` <%= post.post_id %>`, `<%= post.post_title %>`)"
-                                        >
-                                          Deletar
-                                    </a>
-                                     </div>
-                                </div>
-                                <% }) %>
-                            </div>
-                        </div>
-                       </div>
-                    </div>
-                </div>
-                <div class="modal hide-modal" id="modal">
-                    <form action="" method="post">
-                      <div class="content-delete" id="content-delete">
-                        <p>Você está prestes a deletar a pagina</p>
-                        <h3></h3>
-                        <h4>
-                          Se você realmente quer deletar clique em Deletar se não
-                          clique em Cancelar
-                        </h4>
-                        <div class="btns_delete">
-                          <button class="btn_cancel" id="cancelar" type="reset">
-                            Cancelar
-                          </button>
-                          <button class="btn_delete">Delete</button>
-                        </div>
-                      </div>
-                    </form>
+  <body>
+    <%- include('components/header') %>
+    <main>
+      <div class="container_profile">
+        <div class="content_profile">
+          <h1>Meu Perfil</h1>
+          <div class="content-msg grid_area">
+            <% if(msgSuccess) { %>
+            <div class="msgSuccess">
+              <%= msgSuccess %> <a href="/profile">X</a>
+            </div>
+            <% } %> <% if(msgError) { %>
+            <div class="msgError"><%= msgError %> <a href="/profile">X</a></div>
+            <% } %>
+          </div>
+          <header class="menu_profile">
+            <nav>
+              <ul>
+                <li><a href="/profile">Meu Perfil</a></li>
+                <li><a href="/profile/listPosts">Posts</a></li>
+                <li><a href="/profile/createPost">Criar Post</a></li>
+              </ul>
+            </nav>
+          </header>
+          <div class="list_posts">
+            <h2>Criar Post</h2>
+            <div class="table">
+              <div class="row_post">
+                <div class="column">
+                  <div class="header_post">
+                    <div>Titulo</div>
+                    <div>Editar</div>
+                    <div>Deletar</div>
                   </div>
-                </main>
-                <%- include('components/footer') %>
-    </body>
+                </div>
+                <div class="column">
+                  <% posts.forEach(post => { %>
+                  <div class="list">
+                    <div><%= post.post_title %></div>
+                    <div>
+                      <a href="/profile/editPost/<%= post.post_id %>">Editar</a>
+                    </div>
+                    <div>
+                      <a
+                        href="#"
+                        onclick="openDeleteModal(`<%= post.post_id %>`, `<%= post.post_title %>`)"
+                      >
+                        Deletar
+                      </a>
+                    </div>
+                  </div>
+                  <% }) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal hide-modal" id="modal">
+        <form action="" method="post">
+          <div class="content-delete" id="content-delete">
+            <p>Você está prestes a deletar o Post</p>
+            <h3></h3>
+            <h4>
+              Se você realmente quer deletar clique em Deletar se não clique em
+              Cancelar
+            </h4>
+            <div class="btns_delete">
+              <button class="btn_cancel" id="cancelar" type="reset">
+                Cancelar
+              </button>
+              <button class="btn_delete">Delete</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <%- include('components/footer') %>
+  </body>
 </html>

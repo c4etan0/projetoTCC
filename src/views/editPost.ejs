@@ -27,30 +27,35 @@
             </nav>
           </header>
           <div class="fields_post">
-            <h2>Criar Post</h2>
-            <form
-              action="/profile/createPost/<%= user.user_id %>"
-              method="post"
-            >
-              <!-- <input type="hidden" name="user_id" value="" /> -->
+            <h2>Editar Post</h2>
+            <form action="/profile/editPost/<%= post.post_id %>" method="post">
               <div class="table">
                 <div class="column">
                   <div class="create_post">
                     <div class="titulos">
                       <div>Titulo:</div>
                       <div>
-                        <input type="text" name="post_title" />
+                        <input
+                          type="text"
+                          name="post_title"
+                          value="<%= post.post_title %>"
+                        />
                       </div>
                     </div>
                     <div class="dados">
                       <div>Mensagem:</div>
                       <div>
-                        <textarea name="post_content" id=""></textarea>
+                        <textarea name="post_content" id="">
+<%= post.post_content %>
+                        </textarea>
                       </div>
                     </div>
                     <div class="btns_post" id="btns_post">
                       <span></span>
-                      <div><button>Salvar Post</button></div>
+                      <div>
+                        <a href="/profile/listPosts">Cancelar</a>
+                        <button>Atualizar Post</button>
+                      </div>
                     </div>
                   </div>
                 </div>

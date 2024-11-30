@@ -56,6 +56,32 @@
           </div>
         </div>
       </section>
+      <section>
+        <div class="show_all_posts">
+          <div class="list_posts">
+            <% if (posts.length > 0) { posts.forEach(post => { %>
+            <div class="show_post">
+              <div class="user_post">
+                <div class="user_img">
+                  <img src="<%= post.user_img_profile %>" alt="" />
+                </div>
+                <div class="user_name">
+                  <span><%= post.user_name %></span>
+                </div>
+              </div>
+              <div class="by_post">
+                <h1><%= post.post_title %></h1>
+                <div><%= post.post_content %></div>
+              </div>
+            </div>
+            <% }) } else { %>
+            <div class="no_posts">
+              <h3>Nenhum post Encontrado!</h3>
+            </div>
+            <%} %>
+          </div>
+        </div>
+      </section>
     </main>
     <%- include('components/footer') %>
   </body>
