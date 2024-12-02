@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const route = require("./src/routes/routes");
 const path = require("path");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -15,6 +14,7 @@ const profileRoute = require("./src/routes/profileRoute");
 const pagesRoute = require("./src/routes/pageRoutes");
 const uploadAdminRoute = require("./src/routes/uploadAdminRoute");
 const positionRoute = require("./src/routes/positionRoute");
+const homeRoute = require("./src/routes/homeRoute");
 
 const app = express();
 const port = process.env.PORTSERVER || 3000;
@@ -35,7 +35,7 @@ app.use(
     secret: process.env.SECRET,
     resave: true,
     cookie: {
-      maxAge: 60 * 60 * 1000,
+      maxAge:  24 * 60 * 60 * 1000,
     },
     saveUninitialized: true,
   })
@@ -52,7 +52,7 @@ app.use(
   express.static(path.join(__dirname, "node_modules", "tinymce"))
 );
 
-app.use("/", route);
+app.use("/", homeRoute);
 app.use("/admin", adminRoute);
 app.use("/dashboard", dashboardRoute);
 app.use("/login", loginRoute);

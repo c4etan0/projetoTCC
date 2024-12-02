@@ -53,8 +53,8 @@ module.exports = class PagesModel {
 
   static async selectJoinPagesPosition() {
     const selectJoin = `SELECT p.page_id, p.page_title, p.page_status, p.page_content, p.page_date, pos.position_name, pos.position_date
-    FROM login_regyster_system.pages p
-    JOIN login_regyster_system.position pos
+    FROM pages p
+    JOIN position pos
     ON p.position_position_id = pos.position_id;`;
     const [result] = await database.query(selectJoin);
 
@@ -69,9 +69,9 @@ module.exports = class PagesModel {
                             position.position_id,
                             position.position_name
                        FROM
-                            login_regyster_system.pages
+                            pages
                        JOIN 
-                            login_regyster_system.position
+                            position
                         ON  pages.position_position_id = position.position_id 
                         WHERE 
                             pages.page_id = ?;   
