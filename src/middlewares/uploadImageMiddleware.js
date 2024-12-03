@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 
-const uploadDir = path.join(path.join("public", "uploads"));
+const uploadDir = path.join("public", "uploads");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
-    
+
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(null, `${uniqueSuffix}_${replaceSpace}`);
   },

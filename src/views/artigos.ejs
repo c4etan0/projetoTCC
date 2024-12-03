@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <%- include('components/header') %>
+    <main>
+      <section class="home-page">
+        <% pages.forEach((page) => { %>
+        <div>
+          <% if (page.position_name === 'Artigos') { %>
+          <div><%- page.page_content %></div>
+        </div>
+        <% } %> <% }) %>
+      </section>
+    </main>
+    <%- include('components/footer') %>
+  </body>
+</html>

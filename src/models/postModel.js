@@ -50,7 +50,7 @@ module.exports = class PostModel {
     return result;
   }
 
-  static async selectJoinAllPosts(post_id) {
+  static async selectJoinAllPosts() {
     const selectJoin = `SELECT 
                             users.user_id,
                             users.user_name,
@@ -68,7 +68,6 @@ module.exports = class PostModel {
                             users.user_id = posts.users_user_id
                         ORDER BY 
                             posts.post_date DESC;`;
-                    
     const [result] = await database.query(selectJoin);
 
     return result;

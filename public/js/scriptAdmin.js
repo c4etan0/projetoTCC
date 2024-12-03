@@ -1,9 +1,9 @@
 const cancelar = document.querySelector("#cancelar");
 const modal = document.querySelector("#modal");
 const modalAddPosition = document.querySelector("#modal-add-position");
-const modalFrom = document.querySelector("modal from");
-const text_h3 = document.querySelector("content-delete h3");
-const cancel_x = document.querySelector("cancelar-x a");
+const modalForm = document.querySelector("#modal form");
+const text_h3 = document.querySelector("#content-delete h3");
+const cancel_x = document.querySelector("#cancelar-x a");
 const plus_position = document.querySelector("#page_position a");
 
 if (cancelar !== null) {
@@ -14,7 +14,7 @@ if (cancelar !== null) {
 }
 
 if (cancel_x !== null) {
-  cancelar_x.addEventListener("click", () => {
+  cancel_x.addEventListener("click", () => {
     modalAddPosition.classList.add("hide-modal");
     modalAddPosition.classList.remove("show-modal");
   });
@@ -28,17 +28,37 @@ if (plus_position !== null) {
 }
 
 const openDeleteModal = (id, page_title) => {
-  modalFrom.action = `/page/deletePage/${id}`;
-  text_h3.innerHTML = `Você está prestes a deletar a pagina ${page_title}`;
+  modalForm.action = `/pages/deletePage/${id}`;
+  text_h3.innerHTML = page_title;
   modal.classList.add("show-modal");
   modal.classList.remove("hide-modal");
 };
 
-const active = document.querySelectorAll("#manu-admin ul li a");
+const openModalDeletePosition = (id, position_name) => {
+  modalForm.action = `/position/deletePosition/${id}`;
+  text_h3.innerHTML = position_name;
+  modal.classList.add("show-modal");
+  modal.classList.remove("hide-modal");
+};
+
+const active = document.querySelectorAll("#menu-admin ul li a");
 const activePage = window.location.pathname;
 
 active.forEach((link) => {
   if (link.href.includes(`${activePage}`)) {
     link.classList.add("active");
   }
+});
+
+const clickImage = document.querySelectorAll("#content_image");
+const getDataId = document.querySelector("#content_image");
+const clickImageSingle = document.querySelector("#image_name");
+const getImgName = document.querySelectorAll("#img_name");
+
+clickImage.forEach((img) => {
+  img.addEventListener("click", () => {
+    img.classList.add("active_color");
+
+    navigator.clipboard.writeText(img.innerText);
+  });
 });

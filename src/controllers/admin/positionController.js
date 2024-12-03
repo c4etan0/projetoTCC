@@ -23,7 +23,6 @@ module.exports = class PositionController {
     }
 
     const result = await PositionModel.insertPosition(position_name);
-    console.log(result);
 
     return res.redirect(
       "/pages/createPages?msgSuccess=Cadastro da Position realizado com sucesso."

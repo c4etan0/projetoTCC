@@ -32,10 +32,10 @@ class LoginController {
     }
 
     const token = jwt.sign({ user: resultDB }, process.env.SECRET, {
-      expiresIn: 60 * 60 * 100,
+      expiresIn: 24 * 60 * 60 * 100,
     });
 
-    res.cookie("token", token, { maxAge: 60 * 60 * 1000, httpOnly: true });
+    res.cookie("token", token, { maxAge: 24 * 60 * 60 * 1000, httpOnly: true });
 
     req.session.logged = true;
     req.session.user = resultDB;

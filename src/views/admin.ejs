@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<%- include('components/head') %>
+  <%- include('components/head') %>
   <body>
     <main>
-      <div class="form_admin"></div>
-      <form action="/admin" method="post" class="form">
-        <h1>admin</h1>
-        <div class="form-group">
-          <div class="input">
-            <input 
-            type="text" 
-            name="admin_email" 
-            class="admin-email" 
-            id="admin-email"
-            placeholder="" 
-            />
-            <label 
-            for="admin-email">
-              Admin Login </label>
-          </div>
-          <div class="input">
-            <input type="password"
-             name="admin_password" 
-             class="admin-password" 
-             id="admin-password" 
-             placeholder=""
-             />
-            <label for="admin-password">
-              Admin Password</label>
-          </div>
-          <div class="btn-group">
-            <div class="btn">
-              <button> Login </button>
+      <div class="form-admin">
+        <form action="/admin" method="post" class="form">
+          <h1>admin</h1>
+          <div class="form-group">
+            <div class="input">
+              <input
+                type="text"
+                name="admin_email"
+                class="admin-email"
+                id="admin-email"
+                placeholder=""
+              />
+              <label for="admin-email"> Admin Login </label>
+            </div>
+            <div class="input">
+              <input
+                type="password"
+                name="admin_password"
+                class="admin-password"
+                id="admin-password"
+                placeholder=""
+              />
+              <label for="admin-password"> Admin Password</label>
+            </div>
+            <div class="btn-group">
+              <div class="btn">
+                <button>Login</button>
+              </div>
+            </div>
+            <div class="msgError">
+              <% if (msgError) { %>
+              <div class="msgError"><%= msgError %></div>
+              <% } %> <% if(msgSuccess) { %>
+              <div class="msgSuccess"><%= msgSuccess %></div>
+              <% } %>
             </div>
           </div>
-          <div class="msgError">
-            <% if (msgError) { %>
-              <div class="msgError">
-                <%= msgError %>
-              </div>
-              <% } %>
-                <% if(msgSuccess) { %>
-                  <div class="msgSuccess">
-                    <%= msgSuccess %>
-                  </div>
-                  <% } %>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </main>
   </body>
-
 </html>

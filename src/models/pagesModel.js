@@ -18,7 +18,7 @@ module.exports = class PagesModel {
   static async insertPages(page) {
     const { page_title, page_status, page_content, position_position_id } =
       page;
-    const insertPages = `INSERT INTO pages (page_title, page_status, page_content, position_poisition_id) VALUES (?, ?, ?, ?);`;
+    const insertPages = `INSERT INTO pages (page_title, page_status, page_content, position_position_id) VALUES (?, ?, ?, ?);`;
     const [result] = await database.query(insertPages, [
       page_title,
       page_status,
@@ -32,7 +32,7 @@ module.exports = class PagesModel {
   static async updatePage(page_id, page) {
     const { page_title, page_status, page_content, position_position_id } =
       page;
-    const insertPages = `UPDATE pages SET page_title = ?, page_status = ?, page_content = ?`;
+    const insertPages = `UPDATE pages SET page_title = ?, page_status = ?, page_content = ?, position_position_id = ? WHERE page_id = ?;`;
     const [result] = await database.query(insertPages, [
       page_title,
       page_status,
@@ -52,10 +52,16 @@ module.exports = class PagesModel {
   }
 
   static async selectJoinPagesPosition() {
-    const selectJoin = `SELECT p.page_id, p.page_title, p.page_status, p.page_content, p.page_date, pos.position_name, pos.position_date
-    FROM pages p
-    JOIN position pos
-    ON p.position_position_id = pos.position_id;`;
+    const selectJoin = `SELECT p.page_id,
+            p.page_title,
+            p.page_status,
+            p.page_content,
+            p.page_date,
+            pos.position_name,
+            pos.position_date
+          FROM pages p
+          JOIN position pos
+          ON p.position_position_id = pos.position_id;`;
     const [result] = await database.query(selectJoin);
 
     return result;

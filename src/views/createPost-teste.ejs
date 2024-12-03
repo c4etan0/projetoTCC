@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+
+  <body>
+    <%- include('components/header') %>
+    <main>
+      <div class="container_profile">
+        <div class="content_profile">
+          <h1>Meu Perfil</h1>
+          <div class="content-msg grid_area">
+            <% if(msgSuccess) { %>
+            <div class="msgSuccess">
+              <%= msgSuccess %> <a href="/profile">X</a>
+            </div>
+            <% } %> <% if(msgError) { %>
+            <div class="msgError"><%= msgError %> <a href="/profile">X</a></div>
+            <% } %>
+          </div>
+          <header class="menu_profile">
+            <nav>
+              <ul>
+                <li><a href="/profile">Meu Perfil</a></li>
+                <li><a href="/profile/listPosts">Posts</a></li>
+                <li><a href="/profile/createPost">Criar Post</a></li>
+              </ul>
+            </nav>
+          </header>
+          <div class="fields_post"></div>
+        </div>
+      </div>
+    </main>
+    <%- include('components/footer') %>
+  </body>
+</html>

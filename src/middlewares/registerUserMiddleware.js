@@ -18,54 +18,45 @@ module.exports = class RegisterUserMiddleware {
       !data_user.user_password ||
       !data_user.userConfirmPassword
     ) {
-      req.message = {
-        msgFieldsEmpty: "Os campos não podem ser vazios!",
-      };
+      // req.message = {
+      //   msgFieldsEmpty: "Os campos não podem ser vazios!",
+      // };
 
-      return res.render("register", {
-        msg: req.message,
-      });
+      return res.redirect(
+        "/register?msgFieldsEmpty=Os campos não podem ser vazios!"
+      );
     }
 
     if (data_user.user_name.length < 3) {
-      req.message = {
-        msgNameError: "Nome precisa ter no minino 3 caracteres!",
-      };
+      // req.message = {
+      //   msgNameError: "Nome precisa ter no minino 3 caracteres!",
+      // };
 
-      return res.render("register", {
-        msg: req.message,
-      });
+      return res.redirect(
+        "/register?msgNameError=Nome precisa ter no minino 3 caracteres!"
+      );
     }
 
     if (!regex_email.test(data_user.user_email)) {
-      req.message = {
-        msgEmailError: "Digite um email valido!",
-      };
+      // req.message = {
+      //   msgEmailError: "Digite um email valido!",
+      // };
 
-      return res.render("register", {
-        msg: req.message,
-      });
+      return res.redirect("/register?msgErrorEmail=Digite um email valido!");
     }
 
     if (!regex_senha.test(data_user.user_password)) {
-      req.message = {
-        passwordError:
-          "Senha precisa ter Letras Maiusculas, Minusculas, Numeros e Caracteres especiais!",
-      };
-      console.log(req.message);
-      return res.render("register", {
-        msg: req.message,
-      });
+      // req.message = {
+      //   passwordError:
+      //     "Senha precisa ter Letras Maiusculas, Minusculas, Numeros e Caracteres especiais!",
+      // };
+      return res.redirect(
+        "/register?passwordError=Senha precisa ter Letras Maiusculas, Minusculas, Numeros e Caracteres especiais!"
+      );
     }
 
     if (data_user.user_password !== data_user.userConfirmPassword) {
-      req.message = {
-        msgPassError: "Senha não são iguais",
-      };
-      console.log(req.message);
-      return res.render("register", {
-        msg: req.message,
-      });
+      return res.redirect("/register?msgPassError=Senhas não são iguais!");
     }
 
     const recebeEmailFromModel = await RegisterUserModel.getUserByEmail(
@@ -73,13 +64,13 @@ module.exports = class RegisterUserMiddleware {
     );
 
     if (recebeEmailFromModel) {
-      req.message = {
-        msgErrorEmail: "Email já existe",
-      };
-      console.log(req.message);
-      return res.render("register", {
-        msg: req.message,
-      });
+      // req.message = {
+      //   msgErrorEmail: "Email já existe no sistema!",
+      // };
+
+      return res.redirect(
+        "/register?msgErrorEmail=Email já existe no sistema!"
+      );
     }
     next();
   }

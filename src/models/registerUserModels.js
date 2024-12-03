@@ -28,18 +28,17 @@ module.exports = class RegisterUserModel {
     return result;
   }
 
-static async updateUserProfile(user_id, userData) {
-  const {user_name, user_email, user_img_profile } = userData;
-  const updateUserProfile = 
-  "UPDATE users SET user_name = ?, user_email = ?, user_img_profile = ? WHERE user_id = ?;";
-  const [result] = await database.query(updateUserProfile, [
-    user_name,
-    user_email,
-    user_img_profile,
-    user_id,
-  ]);
+  static async updateUserProfile(user_id, userData) {
+    const { user_name, user_email, user_img_profile } = userData;
+    const updateUserProfile =
+      "UPDATE users SET user_name =?, user_email = ?, user_img_profile = ? WHERE user_id = ?;";
+    const [result] = await database.query(updateUserProfile, [
+      user_name,
+      user_email,
+      user_img_profile,
+      user_id,
+    ]);
 
-  return result;
+    return result;
   }
-
 };

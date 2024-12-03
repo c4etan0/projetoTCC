@@ -5,56 +5,12 @@
     <%- include('components/header') %>
     <main>
       <section class="home-page">
-        <div class="content-post">
-          <div class="article-post">
-            <div class="img-post">
-              <img src="/img/montanha.jpg" alt="" />
-            </div>
-            <div class="desc">
-              <a href="#">
-                <h3>titulo do post</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Facere quos assumenda consequatur blanditiis nemo eos ipsum
-                  eaque reiciendis voluptatum quia. Nobis similique ea animi et
-                  odit optio provident doloribus neque!
-                </p>
-              </a>
-            </div>
-          </div>
-          <div class="article-post">
-            <div class="img-post">
-              <img src="/img/montanha.jpg" alt="" />
-            </div>
-            <div class="desc">
-              <a href="#">
-                <h3>titulo do post</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Facere quos assumenda consequatur blanditiis nemo eos ipsum
-                  eaque reiciendis voluptatum quia. Nobis similique ea animi et
-                  odit optio provident doloribus neque!
-                </p>
-              </a>
-            </div>
-          </div>
-          <div class="article-post">
-            <div class="img-post">
-              <img src="/img/montanha.jpg" alt="" />
-            </div>
-            <div class="desc">
-              <a href="#">
-                <h3>titulo do post</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Facere quos assumenda consequatur blanditiis nemo eos ipsum
-                  eaque reiciendis voluptatum quia. Nobis similique ea animi et
-                  odit optio provident doloribus neque!
-                </p>
-              </a>
-            </div>
-          </div>
+        <% pages.forEach((page) => { %>
+        <div>
+          <% if (page.position_name === 'Home text one') { %>
+          <div><%- page.page_content %></div>
         </div>
+        <% } %> <% }) %>
       </section>
       <section>
         <div class="show_all_posts">
