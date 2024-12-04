@@ -72,3 +72,19 @@ const openDeleteModal = (id, position_name) => {
   modal.classList.add("show-modal");
   modal.classList.remove("hide-modal");
 };
+
+const artigo = document.querySelectorAll("#artigo");
+
+artigo.forEach((element) => {
+  const button = element.querySelector("button");
+  button.onclick = () => {
+    element.classList.toggle("active__artigo");
+    button.classList.toggle("active__button");
+
+    if (button.classList.contains("active__button")) {
+      button.innerHTML = "Reduzir Artigo";
+    } else {
+      button.innerHTML = "Continuar Lendo";
+    }
+  };
+});

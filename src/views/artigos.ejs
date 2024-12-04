@@ -4,13 +4,39 @@
   <body>
     <%- include('components/header') %>
     <main>
-      <section class="home-page">
+      <section class="container-artigo">
         <% pages.forEach((page) => { %>
         <div>
           <% if (page.position_name === 'Artigos') { %>
           <div><%- page.page_content %></div>
         </div>
-        <% } %> <% }) %>
+        <% } }) %>
+      </section>
+      <section class="container-artigos">
+        <div class="content-artigo">
+          <div class="artigo" id="artigo">
+            <h1>Artigo</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+              veritatis, laborum, ullam porro laboriosam aliquid incidunt minima
+              tempora, sed cupiditate sapiente iste voluptatibus necessitatibus
+              cum earum quod veniam excepturi vitae!
+            </p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea vel
+              temporibus assumenda et id nulla ipsum sunt, ullam eligendi
+              delectus aliquid aspernatur molestias placeat expedita nesciunt
+              quo, blanditiis similique earum.
+            </p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+              omnis modi reprehenderit laudantium doloremque dolores distinctio,
+              perspiciatis, eligendi et, sit nisi iste ipsum sapiente temporibus
+              accusamus iusto reiciendis id voluptate?
+            </p>
+            <button>Continuar Lendo</button>
+          </div>
+        </div>
       </section>
     </main>
     <%- include('components/footer') %>
