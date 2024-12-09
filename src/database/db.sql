@@ -87,3 +87,11 @@ INNER JOIN
     posts 
 ON 
     users.user_id = posts.users_user_id;
+
+ALTER TABLE `comments`
+DROP FOREIGN KEY `fk_comments_posts1`,
+ADD CONSTRAINT `fk_comments_posts1`
+FOREIGN KEY (`posts_post_id`)
+REFERENCES `posts` (`post_id`)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;

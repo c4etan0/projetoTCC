@@ -23,10 +23,6 @@
   border-radius: 10px;
 }
 
-main {
-  padding: 4rem 0;
-}
-
 a {
   text-decoration: none;
 }
@@ -1112,28 +1108,8 @@ img {
 
 .show_post {
   padding: 2rem 0;
-  overflow: hidden;
-  height: 18rem;
-  position: relative;
 }
 
-.show_post::after {
-  position: absolute;
-  content: "";
-  right: 0;
-  left: 0;
-  bottom: 0;
-  height: 4rem;
-  background: linear-gradient(
-    180deg,
-    rgb(255, 255, 255, 0.4),
-    rgb(255, 255, 255),
-    rgb(255, 255, 255)
-  );
-}
-
-.content__post .user_post,
-.show__comments .user__comment,
 .show_post .user_post {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -1141,8 +1117,6 @@ img {
   position: relative;
 }
 
-.content__post .user_post .user_img,
-.show__comments .user__comment .user_img,
 .show_post .user_post .user_img {
   position: relative;
   width: 80px;
@@ -1151,21 +1125,12 @@ img {
   border-radius: 50%;
 }
 
-.content__post .user_post .user_img img,
 .show_post .user_post .user_img img {
   position: absolute;
 }
 
-.content__post .by_post h1,
 .show_post .by_post h1 {
   padding: 1rem 0;
-}
-
-.form__comment,
-.content__comment,
-.content__post {
-  width: 80%;
-  margin: 0 auto;
 }
 
 /***********************************************
@@ -1187,9 +1152,7 @@ img {
   color: var(--cor-azul);
   border-bottom: 2px solid var(--cor-azul);
 }
-/**************************************************************
-    Estilo dos Artigos
-***************************************************************/
+
 
 .container-artigos {
   padding: 3rem 0;
@@ -1257,9 +1220,8 @@ img {
 .active__button::after {
   background: transparent !important;
 }
-/******************************************************
-    Estilo da Footer
-******************************************************/
+ 
+
 footer {
   background: var(--cor-cinza);
   padding: 3rem 0;

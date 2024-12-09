@@ -59,6 +59,7 @@ module.exports = class PostModel {
                             posts.post_id,
                             posts.post_title,
                             posts.post_content,
+                            posts.post_slug,
                             posts.post_date
                         FROM 
                             users

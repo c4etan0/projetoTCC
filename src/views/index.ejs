@@ -30,6 +30,9 @@
                 <div><%= post.post_content %></div>
               </div>
             </div>
+            <div class="read_more">
+              <a href="/post/<%= post.post_slug %>">Continuar Lendo Post</a>
+            </div>
             <% }) } else { %>
             <div class="no_posts">
               <h3>Nenhum post Encontrado!</h3>
@@ -42,3 +45,26 @@
     <%- include('components/footer') %>
   </body>
 </html>
+<!-- <div class="content-post">
+  <div class="article-post">
+  <div class="img-post"><img src="/1732900372728-433658766_metallica.jpg" alt=""></div>
+  <div class="desc"><a href="#">
+  <h3>Primeiro post</h3>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quos assumenda consequatur blanditiis nemo eos ipsum eaque reiciendis voluptatum quia. Nobis similique ea animi et odit optio provident doloribus neque!</p>
+  </a></div>
+  </div>
+  <div class="article-post">
+  <div class="img-post"><img src="/1732900365860-202582621_linkin-park-4k-b2u2ed8psvzljc02.jpg" alt=""></div>
+  <div class="desc"><a href="#">
+  <h3>Segundo post</h3>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quos assumenda consequatur blanditiis nemo eos ipsum eaque reiciendis voluptatum quia. Nobis similique ea animi et odit optio provident doloribus neque!</p>
+  </a></div>
+  </div>
+  <div class="article-post">
+  <div class="img-post"><img src="/1732900525783-907936300_dubstep_03.jpg" alt=""></div>
+  <div class="desc"><a href="#">
+  <h3>Terceiro post</h3>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quos assumenda consequatur blanditiis nemo eos ipsum eaque reiciendis voluptatum quia. Nobis similique ea animi et odit optio provident doloribus neque!</p>
+  </a></div>
+  </div>
+  </div> -->

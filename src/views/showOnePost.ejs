@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <%- include('components/header') %>
+    <main>
+      <section>
+        <div class="content__post">
+          <div class="user_post">
+            <div class="user_img">
+              <img src="<%= post.user_img_profile %>" alt="" />
+            </div>
+            <div class="user_name">
+              <span><%= post.user_name %></span>
+            </div>
+          </div>
+          <div class="by_post">
+            <h1><%= post.post_title %></h1>
+            <div><%= post.post_content %></div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="form__comment">
+          <% if (!locals.session.logged) { %>
+          <div>
+            <p>
+              Para fazer um comentário neste post, realize
+              <a href="/login">login</a>
+              ou
+              <a href="/register">Crie uma conta</a>.
+            </p>
+          </div>
+          <% } else { %>
+          <form action="/comment/<%= post.post_slug %>" method="post">
+            <input
+              type="hidden"
+              name="users_user_id"
+              value="<%= post.user_id %>"
+            />
+            <input
+              type="hidden"
+              name="posts_post_id"
+              value="<%= post.post_id %>"
+            />
+            <div class="title_post">
+              <h2>Deixe seu comentáario</h2>
+            </div>
+            <div class="comment">
+              <textarea name="comment_content"></textarea>
+            </div>
+            <div class="btn_comment">
+              <button>Enviar Comentário</button>
+            </div>
+          </form>
+
+          <% } %>
+        </div>
+      </section>
+      <section>
+        <div class="content__comment">
+          <% if (comments.length > 0) { comments.forEach(comment => { %>
+          <div class="show__comments">
+            <div class="user__comment">
+              <div class="user_img">
+                <img src="<%= comment.user_img_profile %>" alt="" />
+              </div>
+              <div class="user_name">
+                <span><%= comment.user_name %></span>
+              </div>
+            </div>
+            <div class="comment__text">
+              <p><%= comment.comment_content %></p>
+            </div>
+          </div>
+          <% })} else { %>
+
+          <div class="no__comments">
+            <h3>Não existe comentarios para este post!</h3>
+          </div>
+
+          <% } %>
+        </div>
+      </section>
+    </main>
+    <%- include('components/footer') %>
+  </body>
+</html>
